@@ -102,7 +102,7 @@ python manage.py runserver
 
 ```bash
 jobjunction/
-├── core/               # Main Django app
+├── placeapp/               # Main Django app
 ├── templates/          # HTML Templates
 ├── static/             # CSS, JS, Images
 ├── db.sqlite3          # Database
@@ -121,14 +121,14 @@ Feel free to use, modify, and distribute! 🆓
 
 ## 🤝 Let's Connect
 
-Made with ❤️ by **Debasis Sahoo**
+Made with ❤️ by **Shubhanshi Dash**
 
-- 📧 Email: [your-email@example.com]
-- 🔗 GitHub: [github.com/your-username]
-- 💼 LinkedIn: [linkedin.com/in/your-profile]
+- 📧 Email: su2770120@gmail.com
+- 🔗 GitHub: https://github.com/Dshubhanshi
+- 💼 LinkedIn: https://www.linkedin.com/in/shubhanshi-dash-/
 
 > ⭐ If you like this project, consider giving it a star on GitHub — it motivates me to build more awesome stuff!
 
 ```
 
----
+
