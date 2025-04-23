@@ -1,0 +1,119 @@
+{% extends 'placeapp/base.html' %}
+
+{% block content %}
+<div class="container d-flex align-items-center justify-content-center vh-100">
+    <div class="card shadow p-5" style="max-width: 500px; width: 100%;">
+        <h2 class="text-center mb-4">Signup</h2>
+        <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-outline-primary me-2 tab-btn active" onclick="showTab(event, 'studentForm')">Student Signup</button>
+            <button class="btn btn-outline-primary tab-btn" onclick="showTab(event, 'recruiterForm')">Recruiter Signup</button>
+        </div>
+
+        <!-- Student Signup Form -->
+        <div id="studentForm" class="tab-content active-content">
+            <form method="post" class="form-styled">
+                {% csrf_token %}
+                {{ student_form.as_p }}
+
+                <!-- Error handling (optional) -->
+                {% for field in student_form %}
+                    {% if field.errors %}
+                        <div class="alert alert-danger">
+                            {% for error in field.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                
+                <div class="d-grid gap-2">
+                    <button type="submit" name="student_signup" class="btn btn-primary mt-3">Sign Up as Student</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Recruiter Signup Form -->
+        <div id="recruiterForm" class="tab-content" style="display: none;">
+            <form method="post" class="form-styled">
+                {% csrf_token %}
+                {{ recruiter_form.as_p }}
+                
+                <!-- Error handling (optional) -->
+                {% for field in recruiter_form %}
+                    {% if field.errors %}
+                        <div class="alert alert-danger">
+                            {% for error in field.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                
+                <div class="d-grid gap-2">
+                    <button type="submit" name="recruiter_signup" class="btn btn-primary mt-3">Sign Up as Recruiter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Full card padding */
+    .container {
+        height: max-content !important;
+        padding: 10px;
+    }
+
+    .card {
+        padding: 40px 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Button styling and spacing */
+    .tab-btn {
+        width: 50%;
+    }
+
+    /* Active tab button */
+    .tab-btn.active {
+        background-color: #0d6efd;
+        color: white;
+        border-color: #0d6efd;
+    }
+
+    /* Form styling within the card */
+    .form-styled {
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Gap between form fields */
+        padding-top: 10px;
+    }
+
+    /* Padding adjustments for overall layout */
+    .tab-content {
+        margin-top: 20px;
+    }
+
+    /* Adjust spacing around form */
+    .card h2 {
+        margin-bottom: 20px;
+    }
+
+    .d-grid .btn {
+        margin-top: 15px;
+        padding: 10px 0;
+    }
+</style>
+
+<script>
+    function showTab(event, tabId) {
+        document.querySelectorAll(".tab-content").forEach(content => content.style.display = 'none');
+        document.getElementById(tabId).style.display = 'block';
+
+        document.querySelectorAll(".tab-btn").forEach(button => button.classList.remove("active"));
+        event.currentTarget.classList.add("active");
+    }
+</script>
+
+{% endblock %}

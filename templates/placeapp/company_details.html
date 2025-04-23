@@ -1,0 +1,42 @@
+{% extends 'placeapp/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Company Picture -->
+            {% if company.company_picture %}
+            <img src="{{ company.company_picture.url }}" class="img-fluid" alt="{{ company.name }}">
+            {% else %}
+            <img src="https://via.placeholder.com/300" class="img-fluid" alt="{{ company.name }}">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <h2>{{ company.name }}</h2>
+            <p>{{ company.description }}</p>
+            <p><strong>Location:</strong> {{ company.location }}</p>
+            <p><strong>Email:</strong> <a href="mailto:{{ company.contact_email }}">{{ company.contact_email }}</a></p>
+            <p><strong>Phone:</strong> {{ company.contact_phone }}</p>
+            <p><strong>Website:</strong> <a href="{{ company.website }}" target="_blank">{{ company.website }}</a></p>
+        </div>
+    </div>
+    <hr>
+    <h3>Job Openings</h3>
+    <div class="row">
+        {% for opening in company.job_openings.all %}
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ opening.position }}</h5>
+                    <p><strong>Location:</strong> {{ opening.location }}</p>
+                    <p>{{ opening.description }}</p>
+                    <a href="#" class="btn btn-primary">Apply Now</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No job openings available for this company.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

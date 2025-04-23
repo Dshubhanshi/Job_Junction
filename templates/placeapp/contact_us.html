@@ -1,0 +1,23 @@
+{% extends 'placeapp/base.html' %}
+{% block content %}
+<!-- Contact Us Section -->
+<section class="py-5 animate__animated animate__fadeInUp animate__delay-10s">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-4">Contact Us</h2>
+        <p class="lead text-muted mb-5">Have questions? We're here to help! Get in touch with our support team.</p>
+        <form>
+            <div class="mb-4">
+                <input type="text" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="mb-4">
+                <input type="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="mb-4">
+                <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

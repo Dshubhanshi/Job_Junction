@@ -1,0 +1,30 @@
+{% extends 'placeapp/base.html' %}
+{% block content %}
+<section class="container py-5">
+    <h2 class="text-primary fw-bold text-center mb-4">Register Your Company</h2>
+    <form action="{% url 'company_register' %}" method="post" class="row g-3">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <input type="text" name="company_name" class="form-control" placeholder="Company Name" required>
+        </div>
+        <div class="col-md-6">
+            <input type="url" name="website" class="form-control" placeholder="Company Website (optional)">
+        </div>
+        <div class="col-md-12">
+            <textarea name="address" class="form-control" rows="3" placeholder="Company Address" required></textarea>
+        </div>
+        <div class="col-md-6">
+            <input type="text" name="recruiter_name" class="form-control" placeholder="Recruiter's Name" required>
+        </div>
+        <div class="col-md-6">
+            <input type="email" name="recruiter_email" class="form-control" placeholder="Recruiter's Email" required>
+        </div>
+        <div class="col-md-12">
+            <textarea name="description" class="form-control" rows="5" placeholder="Company Description (optional)"></textarea>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Submit Details</button>
+        </div>
+    </form>
+</section>
+{% endblock %}

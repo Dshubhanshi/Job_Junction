@@ -1,0 +1,6 @@
+<h2>Your Applied Jobs</h2>
+<ul>
+    {% for application in applications %}
+        <li>{{ application.job_opening.title }} - Status: {{ application.status }}</li>
+    {% endfor %}
+</ul>

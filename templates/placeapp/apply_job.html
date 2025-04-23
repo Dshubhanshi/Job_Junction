@@ -1,0 +1,109 @@
+{% extends 'placeapp/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Job Application</h2>
+    <div class="card shadow p-4">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    {{ form.name.label_tag }}
+                    {{ form.name }}
+                </div>
+                <div class="mb-3">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    {{ form.phone.label_tag }}
+                    {{ form.phone }}
+                </div>
+                <div class="mb-3">
+                    {{ form.skills.label_tag }}
+                    {{ form.skills }}
+                </div>
+                <div class="mb-3">
+                    {{ form.cover_letter.label_tag }}
+                    {{ form.cover_letter }}
+                </div>
+                <div class="mb-3">
+                    {{ form.resume.label_tag }}
+                    {{ form.resume }}
+                </div>
+                <div class="mb-3">
+                    {{ form.location.label_tag }}
+                    {{ form.location }}
+                </div>
+                <div class="mb-3">
+                    {{ form.education_level.label_tag }}
+                    {{ form.education_level }}
+                </div>
+                <div class="mb-3">
+                    {{ form.field_of_study.label_tag }}
+                    {{ form.field_of_study }}
+                </div>
+                <div class="mb-3">
+                    {{ form.certification.label_tag }}
+                    {{ form.certification }}
+                </div>
+                <div class="mb-3">
+                    {{ form.expected_salary.label_tag }}
+                    {{ form.expected_salary }}
+                </div>
+                <div class="mb-3">
+                    {{ form.experience.label_tag }}
+                    {{ form.experience }}
+                </div>
+                <div class="mb-3">
+                    {{ form.anything_else.label_tag }}
+                    {{ form.anything_else }}
+                </div>
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                    <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript for dynamic field of study
+    document.getElementById('id_education_level').addEventListener('change', function() {
+        const fieldOfStudy = document.getElementById('id_field_of_study');
+        const educationLevel = this.value;
+
+        let options = '';
+        if (educationLevel === 'Graduation') {
+            options = `
+                <option value="BSc Computer Science">BSc Computer Science</option>
+                <option value="BSc IT">BSc IT</option>
+                <option value="BCom">BCom</option>
+                <option value="BBA">BBA</option>
+                <option value="BE Mechanical">BE Mechanical</option>
+                <option value="BE Electrical">BE Electrical</option>
+                <option value="BTech Civil">BTech Civil</option>
+                <option value="BTech Electronics">BTech Electronics</option>
+                <option value="Other">Other</option>
+            `;
+        } else if (educationLevel === 'Master') {
+            options = `
+                <option value="MSc Computer Science">MSc Computer Science</option>
+                <option value="MBA">MBA</option>
+                <option value="MCom">MCom</option>
+                <option value="ME Mechanical">ME Mechanical</option>
+                <option value="ME Electrical">ME Electrical</option>
+                <option value="MTech Civil">MTech Civil</option>
+                <option value="MTech Electronics">MTech Electronics</option>
+                <option value="MA Economics">MA Economics</option>
+                <option value="Other">Other</option>
+            `;
+        } else {
+            options = '<option value="">Select Field of Study</option>';
+        }
+
+        fieldOfStudy.innerHTML = options;
+    });
+</script>
+{% endblock %}

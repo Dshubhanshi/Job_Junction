@@ -1,0 +1,36 @@
+
+
+/* Sidebar container */
+.hover-sidebar {
+    display: none;  /* Hidden by default */
+    position: absolute;
+    top: 40px;  /* Adjust based on your navbar height */
+    right: 0;
+    background-color: #ffffff;  /* Sidebar background */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    width: 120px;
+    padding: 8px 0;
+    z-index: 1000;
+}
+
+/* Sidebar item styling */
+.hover-sidebar .sidebar-item {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    text-align: center;
+}
+
+.hover-sidebar .sidebar-item:hover {
+    background-color: #f0f0f0; /* Highlight effect */
+}
+
+/* Show sidebar on hover */
+.nav-item:hover .hover-sidebar {
+    display: block;
+}
+
+
+

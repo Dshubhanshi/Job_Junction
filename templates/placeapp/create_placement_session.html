@@ -1,0 +1,119 @@
+{% extends 'placeapp/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="d-flex justify-content-center">
+        <div class="card session-card shadow-lg p-4 animated fadeInUp">
+            <h2 class="text-center text-primary fw-bold">Create Placement Session</h2>
+            
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                    <!-- Session Name -->
+                    <div class="form-group mb-3">
+                        <label for="id_session_name"><i class="fas fa-id-badge"></i> Session Name</label>
+                        {{ form.session_name }}
+                    </div>
+
+                    <!-- Date Fields -->
+                    <div class="row">
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="id_date"><i class="fas fa-calendar-alt"></i> Start Date</label>
+                            {{ form.date }}
+                        </div>
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="id_session_end"><i class="fas fa-hourglass-end"></i> End Date</label>
+                            {{ form.session_end }}
+                        </div>
+                    </div>
+
+                    <!-- Mode & Location -->
+                    <div class="row">
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="id_mode"><i class="fas fa-video"></i> Mode</label>
+                            {{ form.mode }}
+                        </div>
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="id_location"><i class="fas fa-map-marker-alt"></i> Location</label>
+                            {{ form.location }}
+                        </div>
+                    </div>
+
+                    <!-- Hidden Fields (Company & Recruiter) -->
+                    <div style="display: none;">
+                        {{ form.company }}
+                        {{ form.recruiter }}
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-plus-circle"></i> Create Session
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_styles %}
+<style>
+    /* Animation */
+    .fadeInUp {
+        animation: fadeInUp 0.8s ease-in-out;
+    }
+
+    /* Session Card */
+    .session-card {
+        max-width: 500px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: center;
+    }
+
+    /* Form Styling */
+    .form-group label {
+        font-weight: 600;
+        color: #333;
+        display: flex;
+        align-items: center;
+    }
+    
+    .form-group label i {
+        margin-right: 8px;
+        color: #007bff;
+    }
+
+    input, select {
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 8px;
+        transition: 0.3s ease-in-out;
+    }
+
+    input:focus, select:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.2);
+    }
+
+    /* Submit Button */
+    .btn-primary {
+        width: 100%;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+        background: #0056b3;
+    }
+</style>
+{% endblock %}

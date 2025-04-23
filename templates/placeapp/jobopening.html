@@ -1,0 +1,106 @@
+{% extends 'placeapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Available Job Openings</h2>
+
+        {% if jobs %}
+    <div class="row">
+        {% for job in jobs %}
+            <div class="col-md-4 mb-4 job-card" data-aos="fade-up">
+                <div class="card shadow-sm animated fadeInUp">
+                    <img src="{% if job.company.company_picture %}{{ job.company.company_picture.url }}{% else %}{% static 'company_pictures/default.png' %}{% endif %}" 
+                         class="card-img-top" alt="{{ job.company.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ job.position }}</h5>
+                        <p class="card-text">
+                            <strong>Company:</strong> {{ job.company.name }}<br>
+                            <strong>Location:</strong> {{ job.location }}<br>
+                            <strong>Qualification:</strong> {{ job.qualification }}<br>
+                            <strong>Posted On:</strong> {{ job.posted_on }}
+                        </p>
+                        <p class="card-text">
+                            {{ job.description|truncatewords:15 }}...
+                        </p>
+                        {% comment %} <a href="{% url 'apply_for_job' job.id %}" class="btn btn-primary btn-sm">Apply</a> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p class="text-center">No job openings available at the moment.</p>
+{% endif %}
+
+    </div>
+{% endblock content %}
+
+{% block extra_styles %}
+<style>
+    .job-card {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .job-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Smooth scrolling behavior */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* Additional styling for job card */
+    .card-body {
+        text-align: left;
+    }
+    .card-body .card-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+</style>
+{% endblock extra_styles %}
+
+{% block extra_scripts %}
+<script>
+    // Intersection Observer for lazy animation on scroll
+    const jobCards = document.querySelectorAll('.job-card');
+    const observerOptions = {
+        root: null, 
+        rootMargin: '0px', 
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // stop observing the element once it's in view
+            }
+        });
+    }, observerOptions);
+
+    jobCards.forEach(card => {
+        observer.observe(card);
+    });
+</script>
+{% endblock extra_scripts %}

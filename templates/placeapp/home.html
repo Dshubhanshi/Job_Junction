@@ -1,0 +1,474 @@
+{% extends 'placeapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Include Animate.css from CDN -->
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+
+
+<!-- Hero Section -->
+
+<!-- Hero Section -->
+<section class="hero text-white text-center py-5 animate__animated animate__fadeInUp" style="background: linear-gradient(135deg, #1B3A57, #00A896);">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Welcome to the Placement Management System</h1>
+        <p class="lead mb-4">Connecting students and companies seamlessly</p>
+        <a href="{% url 'student_list' %}" class="btn btn-light btn-lg mx-2 animate__animated animate__fadeIn animate__delay-1s">View Students</a>
+        <a href="{% url 'company_list' %}" class="btn btn-light btn-lg mx-2 animate__animated animate__fadeIn animate__delay-1s">View Companies</a>
+        <a href="{% url 'placement_session_list' %}" class="btn btn-light btn-lg mx-2 animate__animated animate__fadeIn animate__delay-2s">View Placements</a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="container text-center py-5 animate__animated animate__fadeInUp animate__delay-1s">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-body">
+                    <h5 class="card-title text-primary fw-bold">Students</h5>
+                    <p class="card-text">Manage student details and monitor placement progress.</p>
+                    <a href="{% url 'student_list' %}" class="btn btn-outline-primary">Explore Students</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-body">
+                    <h5 class="card-title text-primary fw-bold">Companies</h5>
+                    <p class="card-text">Browse companies participating in the placement program.</p>
+                    <a href="{% url 'company_list' %}" class="btn btn-outline-primary">Explore Companies</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-body">
+                    <h5 class="card-title text-primary fw-bold">Placements</h5>
+                    <p class="card-text">Track placement sessions and student selections.</p>
+                    <a href="{% url 'placement_session_list' %}" class="btn btn-outline-primary">Explore Placements</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section class="py-5 animate__animated animate__fadeInUp animate__delay-2s" style="background-color: #F9F9F9;">
+    <div class="container text-center">
+        <h2 class="text-primary fw-bold mb-4">About Us</h2>
+        <p class="lead text-muted mb-5">Our system bridges the gap between students and companies, streamlining the placement process.</p>
+        <div class="row">
+            <div class="col-md-4">
+                <h5 class="fw-bold">Our Mission</h5>
+                <p>Empowering students with a platform to find job opportunities and companies to connect with top talent.</p>
+            </div>
+            <div class="col-md-4">
+                <h5 class="fw-bold">Our Vision</h5>
+                <p>Facilitating smooth collaboration between institutions and recruiters for a successful placement experience.</p>
+            </div>
+            <div class="col-md-4">
+                <h5 class="fw-bold">Our Values</h5>
+                <p>Integrity, Innovation, and Commitment – our pillars for transforming the placement landscape.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section with Counting Animation -->
+<!-- Our Impact Section -->
+<section class="container text-center py-5 animate__animated animate__fadeInUp animate__delay-3s" style="background: #e9ecef;">
+    <h2 class="text-primary fw-bold mb-4">Our Impact in Numbers</h2>
+    <p class="lead text-muted mb-5">We’ve helped thousands of students and companies connect for a brighter future.</p>
+    <div class="row">
+        <!-- Number Count -->
+        <div class="col-md-3">
+            <h3 class="display-5 text-success" data-count="500">0</h3>
+            <p>Students Placed</p>
+        </div>
+        <div class="col-md-3">
+            <h3 class="display-5 text-success" data-count="100">0</h3>
+            <p>Companies on Board</p>
+        </div>
+        <div class="col-md-3">
+            <h3 class="display-5 text-success" data-count="300">0</h3>
+            <p>Placements Completed</p>
+        </div>
+        <div class="col-md-3">
+            <h3 class="display-5 text-success" data-count="50">0</h3>
+            <p>Top Recruiters</p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <!-- Statistics Details -->
+        <div class="col-md-3 mb-4">
+            <div class="p-4 rounded shadow-lg bg-white text-dark">
+                <h3 class="fw-bold">500+</h3>
+                <p>Companies Registered</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="p-4 rounded shadow-lg bg-white text-dark">
+                <h3 class="fw-bold">10,000+</h3>
+                <p>Students Registered</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="p-4 rounded shadow-lg bg-white text-dark">
+                <h3 class="fw-bold">2000+</h3>
+                <p>Jobs Posted</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="p-4 rounded shadow-lg bg-white text-dark">
+                <h3 class="fw-bold">90%</h3>
+                <p>Placement Success Rate</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Testimonials Section -->
+<section class="py-5 animate__animated animate__fadeInUp animate__delay-4s" style="background: linear-gradient(135deg, #1B3A57, #00A896); color: white;">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-4">What Our Users Say</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <p class="fst-italic">"The platform helped me land my dream job effortlessly!"</p>
+                    <h6 class="fw-bold mt-3 text-primary">- Student A</h6>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <p class="fst-italic">"Easy to use and efficient in finding the best talent."</p>
+                    <h6 class="fw-bold mt-3 text-primary">- Recruiter B</h6>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <p class="fst-italic">"A game-changer for our institution's placement needs."</p>
+                    <h6 class="fw-bold mt-3 text-primary">- College C</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Support Section -->
+<section class="container text-center py-5 animate__animated animate__fadeInUp animate__delay-5s">
+    <h2 class="text-primary fw-bold mb-4">Our Dedicated Support</h2>
+    <p class="lead text-muted mb-5">We provide continuous support to students and recruiters throughout the placement journey.</p>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="p-4 rounded shadow-sm bg-light">
+                <h5 class="fw-bold text-primary">Student Assistance</h5>
+                <p>We help students prepare for placements with guidance, mock interviews, and resume tips.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="p-4 rounded shadow-sm bg-light">
+                <h5 class="fw-bold text-primary">Recruiter Support</h5>
+                <p>Our platform streamlines the recruitment process, ensuring companies find the right talent efficiently.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="p-4 rounded shadow-sm bg-light">
+                <h5 class="fw-bold text-primary">Continuous Improvement</h5>
+                <p>We constantly update our system based on feedback to enhance the placement experience.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partners Section -->
+<section class="bg-light py-5 animate__animated animate__fadeInUp animate__delay-6s">
+    <div class="container text-center">
+        <h2 class="text-primary fw-bold mb-4">Our Esteemed Partners</h2>
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <img src="{% static 'img/TCS.NS.png' %}" alt="Partner 1" class="img-fluid">
+            </div>
+            <div class="col-md-3 mb-4">
+                <img src="{% static 'img/deloitte.png' %}" alt="Partner 2" class="img-fluid">
+            </div>
+            <div class="col-md-3 mb-4">
+                <img src="{% static 'img/google.png' %}" alt="Partner 3" class="img-fluid">
+            </div>
+            <div class="col-md-3 mb-4">
+                <img src="{% static 'img/Metaa.png' %}" alt="Partner 4" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="container text-center">
+        
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <img src="{% static 'img/infosys.png' %}" alt="Partner 1" class="img-fluid">
+            </div>
+            <div class="col-md-3 mb-4">
+                <img src="{% static 'img/intel.png' %}" alt="Partner 2" class="img-fluid">
+            </div>
+            <div class="col-md-3 mb-4">
+                <img src="{% static 'img/ibm.png' %}" alt="Partner 3" class="img-fluid">
+            </div>
+            <div class="col-md-3 mb-4">
+                <img src="{% static 'img/accenture.png' %}" alt="Partner 4" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact Us -->
+<section class="text-center py-5" style="background-color: #00A896; color: white;">
+    <h2 class="fw-bold">Need Help? Contact Us</h2>
+    <p class="lead">If you have any questions, feedback, or require assistance, we are here to help you.</p>
+    <a href="{% url 'contact_us' %}" class="btn btn-light btn-lg">Contact Us</a>
+</section>
+
+<!-- Company Register Section -->
+<section class="py-5 animate__animated animate__fadeInUp animate__delay-9s" style="background: linear-gradient(135deg, #1B3A57, #00A896); color: white;">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-4">Register Your Company</h2>
+        <p class="lead text-muted mb-4">Is your company not registered yet? Click below to submit your company details, and we’ll get it added to the platform.</p>
+        <a href="{% url 'company_register' %}" class="btn btn-lg text-white" style="background-color: #00A896;">Register Your Company</a>
+    </div>
+</section>
+<br><br><br>
+
+
+<!-- FAQ Section -->
+<section class="container py-5 animate__animated animate__fadeInUp animate__delay-7s">
+    <div class="container text-center">
+        <h2 class="text-primary fw-bold mb-4">Frequently Asked Questions</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+                        What is the Placement Management System?
+                    </button>
+                    <div id="faqCollapseOne" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            The Placement Management System is a platform designed to connect students with recruiters and streamline the placement process.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                        How can students register for placements?
+                    </button>
+                    <div id="faqCollapseTwo" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Students can register through their personal accounts by filling in relevant details such as education, skills, and preferences.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                        How can companies post job openings?
+                    </button>
+                    <div id="faqCollapseThree" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Companies can create job openings through their recruiter account, specifying details like the position, location, and qualifications.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Features Section -->
+<section class="py-5 animate__animated animate__fadeInUp animate__delay-6s">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-4">Platform Features</h2>
+        <p class="lead text-muted mb-5">Explore the top features that make our platform the best choice for both students and recruiters.</p>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-light text-dark">
+                    <h5 class="fw-bold text-primary">User-Friendly Interface</h5>
+                    <p>Our easy-to-use platform ensures smooth navigation for both students and recruiters.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-light text-dark">
+                    <h5 class="fw-bold text-primary">Real-Time Notifications</h5>
+                    <p>Stay updated with real-time notifications for job postings, interviews, and placement statuses.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-light text-dark">
+                    <h5 class="fw-bold text-primary">Comprehensive Search Filters</h5>
+                    <p>Find the right job or candidate with advanced search filters for skills, location, and more.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- How It Works Section -->
+<section class="py-5 animate__animated animate__fadeInUp animate__delay-5s" style="background: #f8f9fa;">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-4">How It Works</h2>
+        <p class="lead text-muted mb-5">Whether you are a student or a company, here's how you can get started with the platform.</p>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <h5 class="fw-bold text-primary">For Students</h5>
+                    <p>Register your profile, update your skills and preferences, and apply for relevant job openings that match your qualifications.</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <h5 class="fw-bold text-primary">For Companies</h5>
+                    <p>Create a recruiter account, post job openings, and review student profiles to find the perfect fit for your team.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Upcoming Events Section -->
+<section class="py-5 animate__animated animate__fadeInUp animate__delay-8s" style="background: linear-gradient(135deg, #00A896, #1B3A57); color: white;">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-4">Upcoming Events</h2>
+        <p class="lead text-muted mb-5">Join our upcoming events to get tips, improve your skills, and network with industry leaders.</p>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <h5 class="fw-bold text-primary">Webinar on Resume Building</h5>
+                    <p>Learn how to create a standout resume that gets noticed by recruiters.</p>
+                    <p><strong>Date:</strong> February 10, 2025</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <h5 class="fw-bold text-primary">Virtual Job Fair</h5>
+                    <p>Meet top recruiters and apply for the best job opportunities at our virtual job fair.</p>
+                    <p><strong>Date:</strong> March 15, 2025</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <h5 class="fw-bold text-primary">Mock Interviews</h5>
+                    <p>Participate in mock interviews to get real-world experience and feedback from industry experts.</p>
+                    <p><strong>Date:</strong> April 5, 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Career Advice Section -->
+<section class="py-5 animate__animated animate__fadeInUp animate__delay-7s" style="background: #f8f9fa;">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-4">Career Advice</h2>
+        <p class="lead text-muted mb-5">Get expert tips and insights to help you in your career journey.</p>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <h5 class="fw-bold text-primary">How to Write an Effective Resume</h5>
+                    <p>Learn the key elements of a standout resume that impresses recruiters.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <h5 class="fw-bold text-primary">Preparing for Interviews</h5>
+                    <p>Get ready for your interviews with common questions and strategies to impress your interviewers.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4 rounded shadow-lg bg-white text-dark">
+                    <h5 class="fw-bold text-primary">Networking Tips</h5>
+                    <p>Learn how to network effectively to build valuable connections for your career.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Awards & Recognition Section -->
+<section class="py-5 animate__animated animate__fadeInUp animate__delay-7s" style="background: #ffffff;">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-4">Awards & Recognition</h2>
+        <p class="lead text-muted mb-5">We are proud to be recognized as a leading platform in the placement industry.</p>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <img src="{% static 'img/ad2.png' %}" alt="Award 1" class="img-fluid mb-3">
+                <h5 class="fw-bold">Best Placement Platform 2024</h5>
+                <p>Awarded by Tech Industry Leaders for our innovative approach.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <img src="{% static 'img/ad1.png' %}" alt="Award 2" class="img-fluid mb-3">
+                <h5 class="fw-bold">Top 10 EdTech Companies</h5>
+                <p>Recognized for excellence in educational technology and services.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <img src="{% static 'img/ad3.png' %}" alt="Award 3" class="img-fluid mb-3">
+                <h5 class="fw-bold">Best Career Counseling Service</h5>
+                <p>Received for providing exceptional career guidance to students.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Add JavaScript for counting animation -->
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        // Get all elements with data-count attribute
+        const counters = document.querySelectorAll('[data-count]');
+        
+        // Function to animate the counter
+        function countUp() {
+            counters.forEach(counter => {
+                const countTo = parseInt(counter.getAttribute('data-count'));
+                let count = 0;
+                const speed = 50; // Speed of the animation (milliseconds)
+                const interval = setInterval(function () {
+                    counter.textContent = count;
+                    count += Math.ceil(countTo / 100); // Increment the count
+                    if (count >= countTo) {
+                        clearInterval(interval); // Stop the interval when count reaches the target
+                        counter.textContent = countTo; // Ensure it reaches the exact number
+                    }
+                }, speed);
+            });
+        }
+        
+        // Call the countUp function when the element is in view (we'll use IntersectionObserver)
+        const options = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    countUp(); // Start counting when the section is in view
+                    observer.disconnect(); // Stop observing after the count starts
+                }
+            });
+        }, options);
+        
+        // Observe the "Our Impact" section
+        observer.observe(document.querySelector('.container.text-center.py-5'));
+    });
+</script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+{% extends 'placeapp/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Application Submitted</h2>
+    <p>Thank you for applying for the position of {{ job.position }}.</p>
+    {% if session_id %}
+        <a href="{% url 'placement_session_list'  %}" class="btn btn-secondary">
+            Back to Placement Session
+        </a>
+    {% else %}
+        <p>Session details are unavailable.</p>
+    {% endif %}
+</div>
+{% endblock %}
